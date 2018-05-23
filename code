@@ -1,0 +1,82 @@
+#Fill in the blank quiz
+import time
+
+score = 0
+
+#Blanks
+
+blanks = ['__1__', '__2__', '__3__', '__4__', '__5__']
+
+#Greeting 
+
+print "\t\tHello and welcome to the Fill-In-The-Blank-Quiz!"
+
+print "\nThis quiz will be composed of 5 questions and there are 3 difficulties to choose from.\nEasy, Medium and Hard!\nTo begin the quiz, type 'yes' and press enter"
+
+#Inputs Required to start the game
+
+start = input("Would you like to begin?")
+if input == str("yes"):
+	print level
+
+level = None
+while level not in ["easy", "medium", "hard"]:
+	level = input("What difficulty would you like?:[easy, medium or hard]:").lower()
+
+#Easy Questions and Answers
+easy_questions = ["\nThe Pyramids of Giza were built by the '__1__'.""\nThe '__1__' were one of the most advanced civilizations to date.",
+						"\nLions and Zebras live in __2__.\n __2__ is the contenint across the sea from South America.",
+						"\n__3__ was once just an island, now its the 50th state of America.",
+						"\nThe Pilgrams came from __4__ to pursue religious freedom.",
+						"\n__5__ is one of the seven continents and is mainly all ice."]
+
+easy_answers = ["Egyptians", "Africa", "Hawaii", "England", "Antarctica"]
+
+#Medium Questions and Answers 
+medium_questions = []
+
+medium_answers = []
+
+#Hard Questions and Answers
+hard_questions = []
+
+hard_answers = []
+
+#Answer and Question Assigning
+if level == str("easy"):
+	print 'Starting Quiz...'
+	time.sleep(3)
+	print easy_questions[0]
+	q1 = raw_input("What is the answer for '__1__?'")
+	if q1 == easy_answers[0]:
+		print "Correct! Next Question..."
+		score = score + 1
+		print easy_questions[1]
+	elif input != easy_answers[0]:
+		print ("Sorry wrong answer, guess again!")
+		print q1
+	
+
+if level == str("medium"):
+	print 'Starting Quiz...'
+	time.sleep(3)
+
+if level ==str("hard"):
+	print 'Starting Quiz...'
+	time.sleep(3)
+
+#Functions
+#this function checks the answer, and either adds points or takes away a life
+def answer_check(player_answer,questions,answers):
+	if player_answer in answers:
+		print('')
+		print('Correct answer! Well done!')
+		print score + 1
+		print lives + 1
+	else:
+		print('')
+		print('Good guess but it was not correct! Guess again..')
+		print lives - 1
+
+
+delay = raw_input("Press enter to finish. > ")
